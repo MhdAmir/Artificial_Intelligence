@@ -75,13 +75,11 @@ threshold = widgets.FloatText(
 threshold.layout = widgets.Layout(width='150px')
 display(threshold)
 
-# Fungsi Proses Sistem Pakarnya menggunakan prosentase
 def proses(button):
     jawaban = {}
     for i, gejala in enumerate(var):
         jawaban[i] = var[i].value
     
-    # Proses perhitungan prosentase
     total_penyakit = len(penyakit)
     percentages = [0] * total_penyakit
 
@@ -89,12 +87,10 @@ def proses(button):
         match_count = sum(jawaban[j] for j in disease_symptoms)
         percentages[i] = (match_count / len(disease_symptoms)) * 100
 
-    # Display percentages
     print("Percentage match for each disease:")
     for i, disease in enumerate(penyakit):
         print(f"{disease}: {percentages[i]}%")
 
-# Tombol proses
 button = widgets.Button(
     description='Proses',
     disabled=False,
